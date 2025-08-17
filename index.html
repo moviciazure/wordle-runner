@@ -101,18 +101,7 @@
           alert(message);
         });
       };
-	  function getQueryParams() {
-		const urlParams = new URLSearchParams(window.location.search);
-		const maxGames = parseInt(urlParams.get("maxGames")) || 10;
-		const coopProb = parseFloat(urlParams.get("coopProb")) || 0.5;
-
-		// Send values to Unity (GameController must exist in Unity scene)
-		createUnityInstance(document.querySelector("#unity-canvas"), config).then((unityInstance) => {
-		unityInstance.SendMessage("GameController", "SetGameParameters", `${maxGames},${coopProb}`);
-			});
-		}
-
-  window.onload = getQueryParams;
+	  
       document.body.appendChild(script);
     </script>
   </body>
